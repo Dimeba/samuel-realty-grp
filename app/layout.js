@@ -11,7 +11,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
 	return (
 		<html lang='en'>
-			<body className={nunitoSans.className}>{children}</body>
+			<body className={nunitoSans.className}>{children}</body> 
 		</html>
 	)
 }

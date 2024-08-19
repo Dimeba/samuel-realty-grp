@@ -1,10 +1,15 @@
-@use 'base';
+@use "base";
 
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
 * {
-	box-sizing: border-box;
-	scroll-behavior: smooth;
-	scroll-padding-top: 100px;
-	color: base.$gray;
-	padding: 0;
-	margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+  color: base.$gray;
+  border: 1px solid red;
+  font-family: "Nunito Sans", sans-serif;
 }

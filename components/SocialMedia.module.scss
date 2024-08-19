@@ -1,0 +1,30 @@
+.social {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto 1fr auto;
+  height: 60vh;
+  font-size: 20px;
+}
+
+.heroText {
+  grid-column: 1 / -1;
+  justify-self: center;
+}
+
+.iconButtons {
+  grid-column: 1 / -1;
+  justify-self: center;
+}
+
+.instaButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-column: 1 / -1;
+}
+
+.buttonIg {
+  padding: 10px 20px;
+  font-size: 30px;
+  font-size: 20px;
+}

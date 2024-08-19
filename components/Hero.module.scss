@@ -1,0 +1,33 @@
+.hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  place-items: center;
+  text-align: center;
+  width: 100%;
+  height: 60vh;
+  background-image: url("../images/background.jpg");
+  background-position: center bottom;
+  background-size: cover;
+}
+
+.heroText {
+  grid-template-rows: auto auto;
+  justify-self: center;
+  font-size: 50px;
+}
+.headline {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.buttonContainer {
+  display: grid;
+  grid-auto-flow: column;
+}
+.nycButton,
+.liButton {
+  padding: 10px 20px;
+  font-size: 16px;
+}
