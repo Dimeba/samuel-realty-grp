@@ -1,0 +1,17 @@
+@use "@/app/base";
+.button {
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+.primary {
+  background-color: base.$primary;
+  color: white;
+  border: none;
+}
+
+.secundary {
+  background-color: base.$secondary;
+  color: white;
+  border: none;
+}
