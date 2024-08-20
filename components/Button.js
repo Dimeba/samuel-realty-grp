@@ -1,12 +1,10 @@
-//styles
-
 import styles from "./Button.module.scss";
 
-const Button = ({ text, buttonClass }) => {
+const Button = ({ text, color }) => {
   return (
     <button
-      className={$`{styles.button} ${
-        color == "primary" ? styles.primary : styles.secundary
+      className={`${styles.button} ${
+        color === "primary" ? styles.primary : styles.secondary
       }`}
     >
       {text}

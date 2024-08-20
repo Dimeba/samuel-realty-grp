@@ -10,10 +10,12 @@ const Hero = () => {
   return (
     <section className={styles.hero}>
       <div className={styles.heroText}>
-        <h1 className="headline">Real Estate Agency</h1>
+        <h1 className={styles.headline} color="white">
+          Real Estate Agency
+        </h1>
         <div className={styles.buttonContainer}>
-          <Button text="New York City" buttonClass={styles.nycButton}></Button>
-          <Button text="Long Island" buttoonClass={styles.liButton}></Button>
+          <Button text="New York City" color="primary" />
+          <Button text="Long Island" color="secondary" />
         </div>
       </div>
     </section>
