@@ -11,7 +11,7 @@ const Hero = () => {
     <section className={styles.hero}>
       <div className={styles.heroText}>
         <h1 className={styles.headline} color="white">
-          Real Estate Agency
+          Real Estate Agencyy
         </h1>
         <div className={styles.buttonContainer}>
           <Button text="New York City" color="primary" />

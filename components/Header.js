@@ -1,40 +1,37 @@
 "use client";
 
+//hooks
+import { useState } from "react";
+
 //styles
 import styles from "./Header.module.scss";
-import { useState } from "react";
+
 //components
 import Link from "next/link";
-/* import { Spin as Hamburger } from "hamburger-react";
- */
+import { Spin as Hamburger } from "hamburger-react";
+/* import { usePathname } from "next/navigation"; */
+
 //menu items
-//added submenu items - functionality
 const menuItems = [
   {
     title: "ACTIVE LISTINGS",
-    href: "#",
+    href: "/activelistings",
     submenu: [
-      {
-        title: "New York",
-        href: "#",
-      },
-      { title: "Long Island", href: "#" },
+      { title: "New York", href: "/newyork" },
+      { title: "Long Island", href: "/longisland" },
     ],
   },
   {
     title: "PAST SALES",
     href: "#",
     submenu: [
-      {
-        title: "New York",
-        href: "#",
-      },
-      { title: "Long Island", href: "#" },
+      { title: "New York", href: "/newyork" },
+      { title: "Long Island", href: "/longisland" },
     ],
   },
-  { title: "OUR AGENTS", href: "#" },
-  { title: "BLOG", href: "#" },
-  { title: "CONTACT", href: "#" },
+  { title: "OUR AGENTS", href: "/ouragents" },
+  { title: "BLOG", href: "/blog" },
+  { title: "CONTACT", href: "/contact" },
 ];
 
 const Header = () => {
@@ -45,57 +42,30 @@ const Header = () => {
   };
 
   return (
-    <div className={styles.container}>
-      {/* Logo */}
-      <div className={styles.testForResponsive}>
-        {" "}
-        {/* I have added this one div for three header elements, did CSS with flex */}
+    <header className={styles.container}>
+      <div className={styles.headerContent}>
+        {/* Logo */}
         <div className={styles.logo}></div>
-        {/* Hamburger menu for mobile */}
-        <div className={styles.hamburger} onClick={toggleMenu}>
-          <p>nn</p> {/* for test */}
-        </div>
-        {/* Desktop Navigation - first option */}
-        <nav className={styles.nav}>
+
+        {/* Desktop Navigation */}
+        <nav className={`${styles.nav} ${!isMenuOpen && styles.hidden}`}>
           {menuItems.map((item, index) => (
-            <div key={index} className={styles.navItem}>
-              <Link href={item.href} aria-label={`Link to ${item.title} page`}>
+            <div key={index} className={styles.menuItem}>
+              <Link
+                href={item.href}
+                aria-label={`Link to ${item.title} page`}
+                onClick={() => setIsMenuOpen(false)}
+              >
                 {item.title}
               </Link>
+              {/* Submenu */}
               {item.submenu && (
                 <div className={styles.dropdown}>
-                  {item.submenu.map((subItem, subIndex) => (
-                    <Link key={subIndex} href={subItem.href}>
-                      {subItem.title}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-          ))}
-        </nav>
-        {/* Contact */}
-        <div className={styles.contact}>
-          <p>Call Us</p>
-          <p>516.314.7788</p>
-        </div>
-      </div>
-
-      {/* Mobile navigation -second option */}
-      {isMenuOpen && (
-        <div className={styles.mobileMenu}>
-          {menuItems.map((item, index) => (
-            <div key={index} className={styles.mobileMenuItem}>
-              <Link href={item.href} onClick={toggleMenu}>
-                {item.title}
-              </Link>
-              {item.submenu && (
-                <div className={styles.mobileSubmenu}>
                   {item.submenu.map((subItem, subIndex) => (
                     <Link
                       key={subIndex}
                       href={subItem.href}
-                      onClick={toggleMenu}
+                      className={styles.dropdownLink}
                     >
                       {subItem.title}
                     </Link>
@@ -104,9 +74,20 @@ const Header = () => {
               )}
             </div>
           ))}
+        </nav>
+
+        {/* Contact */}
+        <div className={styles.contact}>
+          <p>Call Us</p>
+          <p>516.314.7788</p>
         </div>
-      )}
-    </div>
+
+        {/* Hamburger menu for mobile */}
+        <div className={styles.hamburger} onClick={toggleMenu}>
+          <Hamburger toggled={isMenuOpen} toggle={setIsMenuOpen} />
+        </div>
+      </div>
+    </header>
   );
 };
 
