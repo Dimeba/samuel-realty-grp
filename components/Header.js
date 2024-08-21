@@ -46,7 +46,11 @@ const Header = () => {
     <header className={styles.container}>
       <div className={styles.headerContent}>
         {/* Logo */}
-        <div className={styles.logo}></div>
+        <Link
+          className={styles.logo}
+          href="/"
+          aria-label="Link to Homepage"
+        ></Link>
 
         {/* Desktop Navigation */}
         <nav className={`${styles.nav} ${!isMenuOpen && styles.hidden}`}>

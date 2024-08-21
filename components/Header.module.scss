@@ -37,7 +37,6 @@
   font-size: base.$fontSizeBase;
   background-size: contain;
   background-repeat: no-repeat;
-  // logo styles
 }
 
 .contact {
@@ -103,6 +102,9 @@
     justify-content: center;
     order: 1;
     color: base.$primary;
+    padding: 0;
+    margin: 0;
+    width: 100%;
   }
 
   .contact {
@@ -123,21 +125,20 @@
   .nav {
     display: flex;
     align-items: center;
-    width: auto;
-    position: relative;
-    top: 140px; // nisam sigurna kako ovo da podesim da stalno prati sekciju ispod
+    width: 100%;
+    left: 0;
+    position: absolute;
+    top: 90px;
     flex-direction: column;
     background-color: base.$primary;
 
     a {
+      width: 100%;
       color: white;
       font-size: base.$fontSizeBase;
     }
   }
 
-  .nav.active {
-    display: flex;
-  }
   .headerContent {
     width: 100%;
     flex-direction: row;
@@ -145,6 +146,7 @@
     align-items: center;
   }
   .dropdown {
+    width: 100%;
     padding: 0;
     color: white;
     font-weight: 600;
