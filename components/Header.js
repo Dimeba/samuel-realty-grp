@@ -9,6 +9,7 @@ import styles from "./Header.module.scss";
 //components
 import Link from "next/link";
 import { Spin as Hamburger } from "hamburger-react";
+
 /* import { usePathname } from "next/navigation"; */
 
 //menu items

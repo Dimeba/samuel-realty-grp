@@ -1,7 +1,7 @@
 @use "@/app/base";
 
 .container {
-  position: flex;
+  position: fixed;
   width: 100%;
   background-color: white;
   padding: 8px 16px;
@@ -25,17 +25,26 @@
   justify-content: center;
   font-size: base.$fontSizeSmall;
   min-height: 90px;
+  margin: 0 auto;
 }
 
 .logo {
   flex: 0 0 auto;
   text-align: left;
+  background-image: url(../images/logo.jpeg);
+  height: 70px;
+  width: 100px;
+  font-size: base.$fontSizeBase;
+  background-size: contain;
+  background-repeat: no-repeat;
   // logo styles
 }
 
 .contact {
   flex: 0 0 auto;
   text-align: right;
+  flex-direction: row;
+  justify-content: flex-end;
   font-size: base.$fontSizeBase;
 }
 
@@ -86,21 +95,58 @@
 }
 
 /* Responsive Design */
-/* @media screen and (max-width: 1024px) {
+@media screen and (max-width: 1024px) {
   .hamburger {
     display: flex;
-  }
-
-  .nav {
-    display: ${({ isMenuOpen }) => (isMenuOpen ? "flex" : "none")};
+    align-items: center;
     flex-direction: column;
-    width: 100%;
-    text-align: center;
-    padding: 2rem 0;
-    gap: 2rem;
+    justify-content: center;
+    order: 1;
+    color: base.$primary;
   }
 
-  .menuItem {
-    width: 100%;
+  .contact {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    margin: 0;
+    padding: 0;
+    max-height: fit-content;
+    align-items: flex-end;
+    order: 2;
+    font-size: base.$fontSizeSmall;
   }
-} */
+
+  .hidden {
+    display: none !important;
+  }
+  .nav {
+    display: flex;
+    align-items: center;
+    width: auto;
+    position: relative;
+    top: 140px; // nisam sigurna kako ovo da podesim da stalno prati sekciju ispod
+    flex-direction: column;
+    background-color: base.$primary;
+
+    a {
+      color: white;
+      font-size: base.$fontSizeBase;
+    }
+  }
+
+  .nav.active {
+    display: flex;
+  }
+  .headerContent {
+    width: 100%;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: center;
+  }
+  .dropdown {
+    padding: 0;
+    color: white;
+    font-weight: 600;
+  }
+}
