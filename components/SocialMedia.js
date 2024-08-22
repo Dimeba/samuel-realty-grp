@@ -1,4 +1,6 @@
+//styles
 import styles from "./SocialMedia.module.scss";
+import { FaInstagram } from "react-icons/fa";
 
 const SocialMedia = () => {
   return (
@@ -6,9 +8,12 @@ const SocialMedia = () => {
       <div className={styles.heroText}>
         <h2> Live on Instagram</h2>
       </div>
-      <div className={styles.iconButtons}></div>
+      <div className={styles.instaLinks}></div>
       <div className={styles.instaButton}>
-        <button className={styles.buttonIg}>Follow on Instagram</button>
+        <button className={styles.buttonIg}>
+          <FaInstagram className={styles.faInstagram} />
+          Follow on Instagram
+        </button>
       </div>
     </section>
   );
