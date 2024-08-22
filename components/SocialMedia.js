@@ -45,16 +45,17 @@ const showImage = ({ src, alt, description, link }, index) => (
 const SocialMedia = () => {
   return (
     <section className={styles.social}>
-      <div className={styles.heroText}>
+      <div className={styles.socialText}>
         <h2> Live On Instagram</h2>
       </div>
       <div className={styles.instaLinks}>{images.map(showImage)}</div>
-
       <div className={styles.instaButton}>
-        <button className={styles.buttonIg}>
-          <FaInstagram className={styles.faInstagram} />
-          Follow on Instagram
-        </button>
+        <a href="https://www.instagram.com" target="_blank">
+          <button className={styles.buttonIg}>
+            <FaInstagram className={styles.faInstagram} />
+            Follow on Instagram
+          </button>
+        </a>
       </div>
     </section>
   );
