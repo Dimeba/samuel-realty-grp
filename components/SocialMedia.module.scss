@@ -3,29 +3,47 @@
 .social {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: auto auto auto;
   height: 66vh;
   font-size: 20px;
 }
 
 .heroText {
-  grid-column: 2;
+  grid-column: 1 / span 3;
   grid-row: 1;
   justify-self: center;
-  font-size: base.$fontSizeBase;
+  padding: 15px 0;
+  text-align: center;
+  width: 60%;
 }
 
+.heroText h2 {
+  font-size: 24px;
+  color: base.$h2;
+  font-weight: lighter;
+}
 .instaLinks {
-  justify-self: center;
-  grid-column: 2;
+  grid-column: 1 / span 3;
   grid-row: 2;
+  width: 60%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-self: center;
+  gap: 5px;
+}
+
+.description {
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
 }
 
 .instaButton {
   grid-column: 2;
   grid-row: 3;
-  align-self: center;
+  align-self: flex-start;
   justify-self: center;
+  margin: 0 20px;
 }
 
 .buttonIg {
@@ -33,12 +51,12 @@
   padding: 10px 20px;
   justify-content: center;
   align-items: center;
-  font-size: 30px;
   font-size: 20px;
   color: white;
   background-color: base.$primary;
   width: 290px;
   height: 50px;
+  outline: none;
 }
 
 .faInstagram {
