@@ -1,0 +1,84 @@
+// Services.module.scss
+@use "@/app/base";
+
+.offers {
+  background-color: white;
+  padding: 0px;
+  margin: 0 20px;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: row;
+}
+
+.tabs button {
+  position: relative;
+  flex: 1;
+  padding: 16px 0;
+  background-color: #eaeaea;
+  cursor: pointer;
+  text-align: center;
+  font-size: 16px;
+  border: none;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.tabs button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: base.$primary;
+  transition: width 0.3s;
+}
+
+.tabs button:not(.active):hover::after {
+  width: 100%;
+}
+
+.tabs button.active {
+  background-color: white;
+}
+
+.cards {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 32px 0;
+  justify-content: center;
+}
+
+.imageSlider {
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 20px;
+}
+
+.imageSlider img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.propertyDetails {
+  text-align: left;
+  margin-left: 20px;
+}
+
+.propertyDetails h3 {
+  font-size: 20px;
+}
+
+.propertyDetails h3,
+.propertyDetails p {
+  margin: 10px 0;
+}
+
+.propertyDetails strong {
+  font-size: 20px;
+  font-weight: 600;
+}

@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import Header from "@/components/Header";
 import SocialMedia from "@/components/SocialMedia";
 import Button from "@/components/Button";
+import Services from "@/components/Services";
 
 export default function Home() {
   return (
@@ -11,6 +12,9 @@ export default function Home() {
 
       <div>
         <SocialMedia />
+      </div>
+      <div>
+        <Services />
       </div>
     </main>
   );
