@@ -3,6 +3,7 @@ import "./globals.scss";
 
 // Components
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const nunitoSans = Nunito_Sans({ subsets: ["latin"] });
 
@@ -18,6 +19,7 @@ export default function RootLayout({ children }) {
         <Header />
 
         {children}
+        <Footer />
       </body>
     </html>
   );
