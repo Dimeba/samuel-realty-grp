@@ -2,6 +2,7 @@
 
 //hooks
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 //styles
 import styles from "./Header.module.scss";
@@ -9,8 +10,6 @@ import styles from "./Header.module.scss";
 //components
 import Link from "next/link";
 import { Spin as Hamburger } from "hamburger-react";
-
-/* import { usePathname } from "next/navigation"; */
 
 //menu items
 const menuItems = [
@@ -30,20 +29,27 @@ const menuItems = [
       { title: "Long Island", href: "/longisland" },
     ],
   },
-  { title: "OUR AGENTS", href: "/ouragents" },
+  { title: "OUR AGENTS", href: "/agents" },
   { title: "BLOG", href: "/blog" },
   { title: "CONTACT", href: "/contact" },
 ];
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const isNotHomePage = pathname !== "localhost:3000"; //adding to recognize either is home page or not
+
   return (
-    <header className={styles.container}>
+    <header
+      className={`${styles.container} ${
+        isNotHomePage ? styles.withBottomLine : ""
+      }`}
+    >
       <div className={styles.headerContent}>
         {/* Logo */}
         <Link

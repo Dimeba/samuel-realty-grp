@@ -6,7 +6,7 @@ import Button from "@/components/Button";
 import Services from "@/components/Services";
 import Footer from "@/components/Footer";
 
-export default function Home() {
+export default async function Home() {
   return (
     <main>
       <Hero />
