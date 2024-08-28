@@ -1,5 +1,6 @@
 @use "@/app/base";
 .footer {
+  position: static;
   background-color: base.$primary;
   padding: 20px 0;
   min-width: none;
@@ -11,11 +12,14 @@
   display: flex;
   align-items: center;
   width: 100%;
+  top: 0;
+  bottom: 0;
 }
 
 .container {
   display: flex;
   flex-direction: row;
+  flex: 1;
   gap: 20px;
   width: 100%;
   padding: 0;

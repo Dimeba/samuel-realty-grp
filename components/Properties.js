@@ -2,17 +2,29 @@
 
 //styles
 import { useState } from "react";
-import styles from "./Services.module.scss";
+import styles from "./Properties.module.scss";
 
-const Services = () => {
+//contentful
+import { getEntries } from "@/lib/contentful";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer"; //added in contenful Rich text field, got an error in the meantime
+
+const Properties = () => {
   const [activeTab, setActiveTab] = useState("sales");
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   // Definining tab contents
   const tabContents = [
     {
       id: "sales",
       label: "Sales",
-      image: "/images/sales.jpg",
+      images: [
+        "/images/6H-website-1.jpg",
+        "/images/6H-website-2.jpg",
+        "/images/6H-website-3.jpg",
+        "/images/6H-website-4.jpg",
+        "/images/6H-website-5.jpg",
+      ],
+
       details: {
         address: "309 East 87th Street, Apt 6H",
         city: "Upper East Side, NY 10128",
@@ -25,7 +37,11 @@ const Services = () => {
     {
       id: "rentals",
       label: "Rentals",
-      image: "/images/rentals.jpg",
+      images: [
+        "/images/rentals-1.jpg",
+        "/images/rentals-2.jpg",
+        "/images/rentals-3.jpg",
+      ],
       details: {
         address: "250 East 40th Street, Apt 8C",
         city: "Murray Hill, NY 10016",
@@ -39,6 +55,18 @@ const Services = () => {
 
   // Finding the active tab content
   const activeContent = tabContents.find((tab) => tab.id === activeTab);
+
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === activeContent.images.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? activeContent.images.length - 1 : prevIndex - 1
+    );
+  };
 
   return (
     <div className={styles.offers}>
@@ -59,7 +87,30 @@ const Services = () => {
         {activeContent && (
           <>
             <div className={styles.imageSlider}>
-              <img src={activeContent.image} alt={activeContent.details.type} />
+              <div
+                className={styles.slides}
+                style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+              >
+                {activeContent.images.map((image, index) => (
+                  <img
+                    key={index}
+                    src={image}
+                    alt={`${activeContent.details.type} Slide ${index + 1}`}
+                  />
+                ))}
+              </div>
+              <span
+                className={`${styles.arrow} ${styles.left}`}
+                onClick={prevSlide}
+              >
+                &#10094;
+              </span>
+              <span
+                className={`${styles.arrow} ${styles.right}`}
+                onClick={nextSlide}
+              >
+                &#10095;
+              </span>
             </div>
             <div className={styles.propertyDetails}>
               <h3>{activeContent.details.address}</h3>
@@ -86,4 +137,4 @@ const Services = () => {
   );
 };
 
-export default Services;
+export default Properties;
