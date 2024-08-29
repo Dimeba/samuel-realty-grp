@@ -53,9 +53,10 @@ const Properties = () => {
     },
   ];
 
-  // Finding the active tab content
+  //Finding the active tab content
   const activeContent = tabContents.find((tab) => tab.id === activeTab);
 
+  //Going through images
   const nextSlide = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex === activeContent.images.length - 1 ? 0 : prevIndex + 1
@@ -82,7 +83,7 @@ const Properties = () => {
           </button>
         ))}
       </div>
-      {/* Display content based on the active tab */}
+      {/* Showin content based on the active tab */}
       <div className={styles.cards}>
         {activeContent && (
           <>

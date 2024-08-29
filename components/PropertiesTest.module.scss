@@ -1,0 +1,32 @@
+.mainContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100vw;
+  margin-top: 20px;
+}
+
+.properties {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20%;
+}
+
+.property {
+  margin-bottom: 20px;
+  padding: 20px;
+  width: 100%;
+}
+
+.headline {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.paragraph {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
