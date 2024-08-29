@@ -42,7 +42,7 @@ const Header = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const isNotHomePage = pathname !== "localhost:3000"; //adding to recognize either is home page or not
+  const isNotHomePage = pathname !== "/"; //adding to recognize either is home page or not
 
   return (
     <header
