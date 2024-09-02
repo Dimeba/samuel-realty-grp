@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 
 // Contentful
 import { getEntries } from "@/lib/contentful";
+import ImageSlider from "@/components/ImageSlider";
 
 const Properties = () => {
   const [properties, setProperties] = useState([]); //ovdje cemo smjestiti sve podatke o nekretninama, prvo je prazan niz
@@ -16,6 +17,8 @@ const Properties = () => {
     const propertiesData = async () => {
       //asinhrona funckija, povlaci podatke u pozadini
       const entries = await getEntries("listings");
+
+      console.log(entries);
       setProperties(entries.items);
     };
     propertiesData();
@@ -59,21 +62,12 @@ const Properties = () => {
           <div className={styles.property} key={property.sys.id}>
             <p className={styles.paragraph}>
               {property.fields.gallery &&
-              Array.isArray(property.fields.gallery) ? ( //provjerava da li postoji property.fields.gallery i da li je to niz
-                property.fields.gallery.map(
-                  (
-                    galleryItem,
-                    index //prikazivanje svih slika
-                  ) => (
-                    <div key={index}>
-                      <img
-                        className={styles.galleryImage}
-                        src={galleryItem.fields.file.url}
-                        alt={`Gallery Image ${index}`}
-                      />
-                    </div>
-                  )
-                )
+              Array.isArray(property.fields.gallery) ? (
+                <ImageSlider
+                  images={property.fields.gallery.map(
+                    (galleryItem) => galleryItem.fields.file.url
+                  )}
+                />
               ) : (
                 <p>No gallery available</p>
               )}

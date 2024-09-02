@@ -5,6 +5,7 @@ import SocialMedia from "@/components/SocialMedia";
 import Button from "@/components/Button";
 import Footer from "@/components/Footer";
 import PropertiesTest from "@/components/PropertiesTest";
+import ImageSlider from "@/components/ImageSlider";
 
 export default async function Home() {
   return (

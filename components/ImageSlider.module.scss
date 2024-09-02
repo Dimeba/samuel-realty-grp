@@ -1,0 +1,39 @@
+.imageContainer {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 0;
+
+  .slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img.image {
+      width: 635px;
+      height: 420px;
+    }
+  }
+
+  .leftArrow,
+  .rightArrow {
+    position: absolute;
+    top: 50%;
+    cursor: pointer;
+    transform: translateY(-50%);
+    font-size: 35px;
+    font-weight: 600;
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+  }
+
+  .leftArrow {
+    left: 10px;
+  }
+
+  .rightArrow {
+    right: 10px;
+  }
+}
