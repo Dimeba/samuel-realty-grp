@@ -4,7 +4,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto auto auto;
-  height: 66vh;
+  height: 100%;
   font-size: 20px;
   background-color: #f2f2f2;
 }
@@ -77,7 +77,7 @@
   width: 290px;
   height: 50px;
   cursor: pointer;
-  /* margin-bottom: 20px; */
+  margin: 20px 0 20px 0;
   border: none;
 }
 
