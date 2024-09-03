@@ -1,12 +1,11 @@
 @use "@/app/base";
 .footer {
-  position: static;
+  position: relative;
   background-color: base.$primary;
   padding: 20px 0;
   min-width: none;
   max-height: 90px;
   text-align: center;
-  margin: 30px 0 0 0;
   padding: 20px 25px;
   justify-content: center;
   display: flex;
@@ -14,6 +13,7 @@
   width: 100%;
   top: 0;
   bottom: 0;
+  margin-top: auto;
 }
 
 .container {

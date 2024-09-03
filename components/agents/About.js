@@ -21,11 +21,11 @@ const ourAgents = () => {
       <div className={styles.agent} key={i}>
         <h3 className={styles.namesHeadline}>{`${agent.fields.name}`}</h3>
         <p className={styles.paragraphPosition}>{`${agent.fields.position}`}</p>
-        <p className={styles.paragraph}>
+        <div className={styles.paragraph}>
           {" "}
           {documentToReactComponents(agent.fields.biography)}
-        </p>
-        <Link href={`/agents/${agent.fields.slug}`} passHref>
+        </div>
+        <Link href={`/agents/${agent.sys.id}`} passHref>
           <p className={styles.moreInfo}>More info</p>
         </Link>
         <p
