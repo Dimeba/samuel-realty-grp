@@ -40,7 +40,7 @@ const ourAgents = () => {
   return (
     <div className={styles.mainContainer}>
       <div className={styles.about}>
-        <h2 className={styles.headline}>About the Agency</h2>
+        <h2 className={styles.headlineMain}>About the Agency</h2>
         <p className={styles.paragraph}>
           Samuel Realty Group, LLC, founded in 2016, is a first-class
           residential brokerage firm. The company's identity is built around its

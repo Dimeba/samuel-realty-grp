@@ -1,0 +1,48 @@
+@use "@/app/base";
+
+.container {
+  margin: 90px 90px 0;
+  display: flex;
+  flex-direction: column;
+  padding: 32px 15px;
+  text-align: left;
+  line-height: 28px;
+  color: base.$primary;
+  justify-content: center;
+}
+
+.agentDetalis {
+  padding: 16px 0 20px 0;
+}
+
+.headingTwo {
+  margin-bottom: 22px;
+  text-decoration: none;
+  font-weight: normal;
+  font-size: 16px;
+  padding: 0 0 16px 0;
+}
+
+.biographyExtended {
+  font-size: 16px;
+  line-height: 1.6;
+  color: base.$primary;
+  line-height: 28px;
+}
+
+.phone,
+.email {
+  margin-bottom: 2rem;
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+.hr {
+  width: 10 0%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-top: 1px solid #ccc;
+  text-align: left;
+}
