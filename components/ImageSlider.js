@@ -1,9 +1,6 @@
 "use client";
 
 import { useState } from "react";
-
-//styles
-
 import styles from "./ImageSlider.module.scss";
 
 const ImageSlider = ({ images }) => {
@@ -26,12 +23,18 @@ const ImageSlider = ({ images }) => {
       <div className={styles.leftArrow} onClick={prevSlide}>
         &#10094;
       </div>
-      <div className={styles.slide}>
-        <img
-          src={images[currentIndex]}
-          alt={`Slide ${currentIndex}`}
-          className={styles.image}
-        />
+      <div
+        className={styles.slide}
+        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+      >
+        {images.map((image, index) => (
+          <img
+            key={index}
+            src={image}
+            alt={`Slide ${index}`}
+            className={styles.image}
+          />
+        ))}
       </div>
       <div className={styles.rightArrow} onClick={nextSlide}>
         &#10095;

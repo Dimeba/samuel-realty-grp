@@ -8,7 +8,8 @@
   text-align: left;
   line-height: 28px;
   color: base.$primary;
-  justify-content: center;
+  justify-content: space-between;
+  min-height: 100vh;
 }
 
 .agentDetalis {
@@ -25,7 +26,9 @@
 
 .biographyExtended {
   font-size: 16px;
-  line-height: 1.6;
+  width: 1110px;
+  height: 300px;
+  line-height: 28px;
   color: base.$primary;
   line-height: 28px;
 }
@@ -45,4 +48,15 @@
   border: 0;
   border-top: 1px solid #ccc;
   text-align: left;
+}
+
+.closings {
+  display: block;
+  font-size: 24px;
+  padding: 30px 0;
+  height: 100px;
+  line-height: 38px;
+  text-align: center;
+  width: 100%;
+  margin: auto 0;
 }

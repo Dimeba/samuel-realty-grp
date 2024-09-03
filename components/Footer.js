@@ -12,15 +12,27 @@ const Footer = () => {
       <div className={styles.container}>
         {/* Footer | left bottom side */}
         <div className={styles.leftFooter}>
-          <FaInstagram className={styles.faInstagram} />
-          <FaFacebook className={styles.faFacebook} />
-          <FooterImage
-            src="./images/zillow-logo.png"
-            className={styles.zillowLogo}
-            width={85}
-            height={18}
-            alt="Zillow Logo"
-          />
+          <a href="https://www.facebook.com/samuelrealtygroup/" target="_blank">
+            <FaFacebook className={styles.faFacebook} />
+          </a>
+          <a
+            href="https://www.instagram.com/samuelrealtygroup/"
+            target="_blank"
+          >
+            <FaInstagram className={styles.faInstagram} />{" "}
+          </a>
+          <a
+            href="https://www.zillow.com/profile/shorowitzrealty"
+            target="_blank"
+          >
+            <FooterImage
+              src="./images/zillow-logo.png"
+              className={styles.zillowLogo}
+              width={85}
+              height={18}
+              alt="Zillow Logo"
+            />
+          </a>
 
           {/* Footer | Middle bottom side */}
           <div className={styles.middleFooter}>

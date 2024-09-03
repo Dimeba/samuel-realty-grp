@@ -5,7 +5,6 @@
   padding: 0px;
   margin: 0 auto;
   width: 100%;
-  animation: slideIn 1s ease-out;
 }
 
 .tabNavigation {
@@ -13,17 +12,6 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-}
-
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(-50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .tabButton {
@@ -68,6 +56,24 @@
   align-items: center;
   padding: 32px 0;
   justify-content: center;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.properties .property:nth-child(1) {
+  animation-delay: 0.5s;
 }
 
 .gallery {
@@ -76,13 +82,33 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  overflow: hidden;
+  position: relative;
 }
 .galleryImage {
   width: 530px;
   height: 330px;
   object-fit: cover;
-}
+  position: absolute;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  transform: translateX(100%);
+  opacity: 0;
 
+  &.active {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  &.prev {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  &.next {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
 .propertyDetails {
   width: 60%;
   display: flex;

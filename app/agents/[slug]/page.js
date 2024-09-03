@@ -5,15 +5,20 @@ import styles from "./page.module.scss";
 
 const agents = await getEntries("agents");
 export async function generateStaticParams() {
-  return agents.items.map((item) => ({
-    slug: item.sys.id,
-  }));
+  return agents.items
+    .filter((item) => !item.fields.name.includes("About")) // Filter out agents with "About" in their name
+    .map((item) => ({
+      slug: item.sys.id,
+    }));
 }
-
 export default async function AgentPage({ params }) {
   const { slug } = params;
   console.log("Slug:", slug);
   const agent = await getEntry(slug);
+
+  if (agent.fields.name.includes("About")) {
+    return <p>Agent not found or page is restricted.</p>; // or redirect to another page
+  }
 
   return (
     <div className={styles.container}>
