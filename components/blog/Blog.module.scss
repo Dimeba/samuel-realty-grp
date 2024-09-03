@@ -9,11 +9,11 @@
   color: base.$gray;
 }
 
-.headline {
+.mainHeadline {
   font-size: 36px;
   color: base.$primary;
   text-transform: uppercase;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   text-align: center;
   width: 100%;
 }
@@ -24,6 +24,7 @@
   align-items: center;
   width: 100%;
   max-width: 1200px;
+  margin: 25px 0;
 }
 
 .image {
@@ -66,9 +67,11 @@
   padding: 0;
   color: base.$gray;
   text-align: justify;
+  display: inline;
 }
 
 .readMore {
+  margin: 0;
   color: base.$gray;
   font-size: 16px;
   font-weight: 600;
