@@ -1,138 +1,108 @@
 "use client";
 
-//styles
-import { useState } from "react";
 import styles from "./Properties.module.scss";
+import Link from "next/link";
+import { useState, useEffect } from "react";
 
-//contentful
+// Contentful
 import { getEntries } from "@/lib/contentful";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer"; //added in contenful Rich text field, got an error in the meantime
+import ImageSlider from "@/components/ImageSlider";
 
 const Properties = () => {
-  const [activeTab, setActiveTab] = useState("sales");
-  const [currentIndex, setCurrentIndex] = useState(0);
+  //pocetna stanja, prazan niz i prikaz sales kartice
+  const [properties, setProperties] = useState([]);
+  const [activeTab, setActiveTab] = useState("Sales");
 
-  // Definining tab contents
-  const tabContents = [
-    {
-      id: "sales",
-      label: "Sales",
-      images: [
-        "/images/6H-website-1.jpg",
-        "/images/6H-website-2.jpg",
-        "/images/6H-website-3.jpg",
-        "/images/6H-website-4.jpg",
-        "/images/6H-website-5.jpg",
-      ],
+  useEffect(() => {
+    //preko useEffecta uzimam podatke sa Contenfula
+    const propertiesData = async () => {
+      //asinhrona funckija, povlaci podatke u pozadini
+      const entries = await getEntries("listings");
 
-      details: {
-        address: "309 East 87th Street, Apt 6H",
-        city: "Upper East Side, NY 10128",
-        type: "Co-op",
-        price: "$850,000",
-        beds: "2",
-        baths: "1",
-      },
-    },
-    {
-      id: "rentals",
-      label: "Rentals",
-      images: [
-        "/images/rentals-1.jpg",
-        "/images/rentals-2.jpg",
-        "/images/rentals-3.jpg",
-      ],
-      details: {
-        address: "250 East 40th Street, Apt 8C",
-        city: "Murray Hill, NY 10016",
-        type: "Condo",
-        price: "$2.950",
-        beds: "studio",
-        baths: "1",
-      },
-    },
-  ];
+      console.log(entries);
+      setProperties(entries.items);
+    };
+    propertiesData();
+  }, []);
 
-  //Finding the active tab content
-  const activeContent = tabContents.find((tab) => tab.id === activeTab);
-
-  //Going through images
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === activeContent.images.length - 1 ? 0 : prevIndex + 1
-    );
+  const tabClick = (tab) => {
+    //za promjenu aktivne kartice
+    setActiveTab(tab);
   };
 
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? activeContent.images.length - 1 : prevIndex - 1
-    );
-  };
+  //kreiram novu listu properties, prolazi kroz sve nekretnine i filtriram one koji odgovaraju aktivnoj kartici
+  const showProperties = properties.filter(
+    (item) => item.fields.propertyCategory === activeTab
+  );
 
   return (
-    <div className={styles.offers}>
-      {/* Tabs for switching between sales and rentals */}
-      <div className={styles.tabs}>
-        {tabContents.map((tab) => (
-          <button
-            key={tab.id}
-            className={activeTab === tab.id ? styles.active : ""}
-            onClick={() => setActiveTab(tab.id)}
-          >
-            {tab.label}
-          </button>
-        ))}
+    <div className={styles.mainContainer}>
+      {/* Tab Navigation */}
+      <div className={styles.tabNavigation}>
+        <button
+          className={`${styles.tabButton} ${
+            activeTab === "Sales" ? styles.active : ""
+          }`}
+          onClick={() => tabClick("Sales")}
+        >
+          Sales
+        </button>
+        <button
+          className={`${styles.tabButton} ${
+            activeTab === "Rentals" ? styles.active : ""
+          }`}
+          onClick={() => tabClick("Rentals")}
+        >
+          Rentals
+        </button>
       </div>
-      {/* Showin content based on the active tab */}
-      <div className={styles.cards}>
-        {activeContent && (
-          <>
-            <div className={styles.imageSlider}>
-              <div
-                className={styles.slides}
-                style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-              >
-                {activeContent.images.map((image, index) => (
-                  <img
-                    key={index}
-                    src={image}
-                    alt={`${activeContent.details.type} Slide ${index + 1}`}
-                  />
-                ))}
-              </div>
-              <span
-                className={`${styles.arrow} ${styles.left}`}
-                onClick={prevSlide}
-              >
-                &#10094;
-              </span>
-              <span
-                className={`${styles.arrow} ${styles.right}`}
-                onClick={nextSlide}
-              >
-                &#10095;
-              </span>
-            </div>
+
+      {/* Properties */}
+      <div className={styles.properties}>
+        {showProperties.map((property) => (
+          <div className={styles.property} key={property.sys.id}>
+            <p className={styles.paragraph}>
+              {" "}
+              {property.fields.gallery &&
+              Array.isArray(property.fields.gallery) ? (
+                <ImageSlider
+                  images={property.fields.gallery.map(
+                    (galleryItem) => galleryItem.fields.file.url
+                  )}
+                />
+              ) : (
+                <p>No gallery available</p>
+              )}
+            </p>
             <div className={styles.propertyDetails}>
-              <h3>{activeContent.details.address}</h3>
-              <p>{activeContent.details.city}</p>
-              <p>{activeContent.details.type}</p>
-              <p>
-                <strong>
-                  {activeContent.details.type === "Rental"
-                    ? "Monthly Rent:"
-                    : "Asking Price:"}
-                  {activeContent.details.price}
-                </strong>{" "}
+              <Link
+                style={{ textDecoration: "none" }}
+                href={`/properties/${property.sys.id}`}
+              >
+                <h3 className={styles.headline}>{property.fields.address}</h3>
+              </Link>
+              <p className={styles.paragraph}>
+                {property.fields.neighbourhood}
               </p>
-              <p>
-                Beds: {activeContent.details.beds} | Bath:{" "}
-                {/* kontam da je visak koda, ali svaki put mi doda sam vs kad sacuvam kod, {" "} ovaj block */}
-                {activeContent.details.baths}
+
+              <p className={styles.paragraph}>
+                {property.fields.propertyCategory}
+              </p>
+              <hr className={styles.hr}></hr>
+              <p className={styles.paragraphPrice}>
+                <strong>
+                  {property.fields.propertyCategory === "Rentals"
+                    ? "Monthly Rent:"
+                    : "Asking Price:"}{" "}
+                  {property.fields.price}
+                </strong>
+              </p>
+              <p className={styles.paragraph}>
+                Beds: {property.fields.beds} | Baths: {property.fields.baths}
               </p>
             </div>
-          </>
-        )}
+          </div>
+        ))}
       </div>
     </div>
   );

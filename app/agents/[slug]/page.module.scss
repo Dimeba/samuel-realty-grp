@@ -1,7 +1,7 @@
 @use "@/app/base";
 
 .container {
-  margin: 90px 90px 0;
+  margin: 90px 382px 0 382px;
   display: flex;
   flex-direction: column;
   padding: 32px 15px;
@@ -9,10 +9,10 @@
   line-height: 28px;
   color: base.$primary;
   justify-content: space-between;
-  min-height: 100vh;
+  /*   min-height: 100vh; */
 }
 
-.agentDetalis {
+.agentDetails {
   padding: 16px 0 20px 0;
 }
 
@@ -53,10 +53,75 @@
 .closings {
   display: block;
   font-size: 24px;
+  font-weight: 800;
   padding: 30px 0;
   height: 100px;
   line-height: 38px;
   text-align: center;
   width: 100%;
   margin: auto 0;
+}
+
+.properties {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.property {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  .image {
+    min-width: 100%;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .propertyDetails {
+    padding: 10px;
+    text-align: center;
+    justify-content: center;
+
+    .headline {
+      font-size: 20px;
+      color: #3e5a6b;
+      font-weight: 800;
+
+      padding: 10px 0;
+      margin: 0;
+      min-height: 78px;
+    }
+
+    .paragraph {
+      color: base.$primary;
+      margin: 0;
+      padding: 0;
+    }
+
+    .paragraphPrice {
+      color: base.$primary;
+      font-weight: 800;
+      font-size: 20px;
+      line-height: 35px;
+      margin: 0;
+    }
+
+    .hr {
+      display: inline-block;
+      width: 50%;
+      margin: 16px 0 0 0;
+      padding: 0 125px 0 0;
+      border-top: 1px solid #ccc;
+      text-align: center;
+    }
+  }
 }

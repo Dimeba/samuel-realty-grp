@@ -24,10 +24,10 @@ const ourAgents = () => {
         <div className={styles.paragraph}>
           {" "}
           {documentToReactComponents(agent.fields.biography)}
+          <Link href={`/agents/${agent.sys.id}`} passHref>
+            <span className={styles.moreInfo}>More info</span>
+          </Link>{" "}
         </div>
-        <Link href={`/agents/${agent.sys.id}`} passHref>
-          <p className={styles.moreInfo}>More info</p>
-        </Link>
         <p
           className={styles.paragraph}
         >{`Phone number: ${agent.fields.phone}`}</p>

@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import styles from "./ImageSlider.module.scss";
-
+//saljem prop slideru
 const ImageSlider = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  console.log(images);
 
   const prevSlide = () => {
     const firstSlide = currentIndex === 0;

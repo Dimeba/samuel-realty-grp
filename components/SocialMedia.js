@@ -50,8 +50,12 @@ const SocialMedia = () => {
       </div>
       <div className={styles.instaLinks}>{images.map(showImage)}</div>
       <div className={styles.instaButton}>
-        <a href="https://www.instagram.com" target="_blank">
-          <button className={styles.buttonIg}>
+        <a>
+          <button
+            href="https://www.instagram.com/samuelrealtygroup/"
+            target="_blank"
+            className={styles.buttonIg}
+          >
             <FaInstagram className={styles.faInstagram} />
             Follow on Instagram
           </button>

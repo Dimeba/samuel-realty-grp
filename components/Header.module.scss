@@ -61,19 +61,19 @@
     font-size: base.$fontSizeSmall;
     text-decoration: none;
     text-transform: uppercase;
-    padding: 0.5rem 1rem;
+    padding: 0;
   }
   &::after {
     content: "";
     position: absolute;
     left: 0;
     right: 0;
-    bottom: -2px;
+    width: 100%;
     height: 2px;
     background-color: base.$primary;
     transform: scaleX(0);
     transform-origin: center;
-    transition: transform 0.3s ease;
+    transition: transform ease;
   }
 
   &:hover::after {
@@ -87,7 +87,7 @@
   top: 100%;
   left: 0;
   background-color: white;
-  padding-top: 1.87rem;
+  padding-top: 2.3rem;
   z-index: 99;
   width: 100%;
 
