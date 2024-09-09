@@ -5,6 +5,16 @@
   padding: 32px 15px;
   line-height: 28px;
   color: base.$primary;
+  @media only screen and (max-width: 768px) {
+    margin: 90px 20px 0 20px;
+  }
+
+  @media only screen and (max-width: 480px) {
+    margin: 90px 10px 0 10px;
+  }
+  @media only screen and (max-width: 1280px) {
+    margin: 90px 50px 0 50px;
+  }
 }
 
 .about,
@@ -36,6 +46,14 @@
   animation: slideIn 1s ease-out;
   opacity: 0;
   animation-fill-mode: forwards;
+
+  @media only screen and (max-width: 768px) {
+    padding: 16px 10px;
+  }
+
+  @media only screen and (max-width: 480px) {
+    padding: 16px 5px;
+  }
 }
 
 .headline {
@@ -76,7 +94,7 @@
     text-decoration: none;
   }
 }
-/* ne mogu izvaliti zasto ne mogu da pomjerim more info button skroz do paragrafa */
+
 .moreInfo {
   text-transform: uppercase;
   font-weight: 800;
@@ -87,4 +105,48 @@
 }
 .moreInfo:hover {
   color: #3e5a6b;
+}
+
+@media only screen and (max-width: 768px) {
+  .agent {
+    .namesHeadline,
+    .paragraphPosition {
+      text-align: left;
+    }
+
+    .paragraph {
+      margin: 0;
+      padding: 0;
+      text-align: left;
+    }
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .agent {
+    .namesHeadline,
+    .paragraphPosition {
+      text-align: center;
+    }
+
+    .paragraph {
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+  }
+}
+@media only screen and (max-width: 1280px) {
+  .agent {
+    .namesHeadline,
+    .paragraphPosition {
+      text-align: left;
+    }
+
+    .paragraph {
+      margin: 0;
+      padding: 0;
+      text-align: left;
+    }
+  }
 }

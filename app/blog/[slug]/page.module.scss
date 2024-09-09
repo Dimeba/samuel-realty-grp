@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 90px 116px 0 90px;
+  margin: 90px 0 0 0;
   padding: 32px 15px;
   width: 100%;
   min-height: 85vh;
@@ -15,9 +15,9 @@
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 1rem;
-    height: 24px;
+    height: auto;
     width: 100%;
-    padding: 0 0 0 20px;
+    padding: 0 20px;
     text-align: left;
     a {
       text-decoration: none;
@@ -35,7 +35,7 @@
     align-items: center;
     width: 100%;
     max-width: 1200px;
-    margin: 25px 0;
+    margin: 0;
   }
 
   .image {
@@ -111,5 +111,67 @@
     font-family: "Nunito Sans", sans-serif;
     font-weight: 400;
     line-height: none;
+  }
+}
+
+@media (max-width: 728px) {
+  .mainContainer {
+    padding: 20px 10px;
+    margin: 60px 0 0 0;
+  }
+  .breadcrumb {
+    padding: 0 10px;
+    margin-top: 20px;
+  }
+  .image {
+    width: 100%;
+    transform: translateY(10px);
+  }
+
+  .blogPost {
+    width: 90%;
+    padding-left: 10px;
+    transform: translateY(10px);
+  }
+
+  .headline {
+    font-size: 18px;
+    line-height: 14px;
+  }
+
+  .moreAbout {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 420px) {
+  .mainContainer {
+    padding: 15px;
+    margin: 40px 0 0 0;
+  }
+  .breadcrumb {
+    padding: 0 10px;
+    margin-top: 50px;
+  }
+  .image {
+    width: 100%;
+    transform: translateY(0);
+  }
+
+  .blogPost {
+    width: 100%;
+    padding-left: 0;
+    transform: translateY(0);
+  }
+
+  .headline {
+    font-size: 12px;
+    line-height: 14px;
+  }
+
+  .moreAbout {
+    font-size: 10px;
+    line-height: 1.5;
   }
 }

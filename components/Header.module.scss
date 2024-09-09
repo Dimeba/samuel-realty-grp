@@ -117,6 +117,7 @@
 @media (max-width: 768px) {
   .hamburger {
     display: flex;
+    flex: 1 1 100%;
     align-items: center;
     justify-content: center;
     width: 100%;

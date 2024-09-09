@@ -29,7 +29,7 @@ export default async function AgentPage({ params }) {
   return (
     <div className={styles.container}>
       {
-        <div>
+        <div className={styles.breadcrump}>
           <Link href="/agents">Our Agents</Link> &gt;{" "}
           <strong>{agent.fields.name}</strong>
         </div>

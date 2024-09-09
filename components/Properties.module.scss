@@ -82,17 +82,18 @@
 }
 
 .gallery {
-  max-width: 530px;
+  width: 530px;
   height: 330px;
   display: flex;
   flex-direction: column;
   gap: 10px;
   overflow: hidden;
   position: relative;
+  margin: 0 auto;
 }
 .galleryImage {
-  width: 530px;
-  height: 330px;
+  /*   width: 530px;
+  height: 330px; */
   object-fit: cover;
   position: absolute;
   transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
@@ -138,4 +139,102 @@
   font-size: 16px;
   margin: 0;
   line-height: 28px;
+}
+
+/* Media Query for screens up to 1024px */
+@media only screen and (max-width: 1024px) {
+  .tabButton {
+    font-size: 16px;
+    padding: 15px;
+  }
+
+  .headline {
+    font-size: 15px;
+  }
+
+  .property {
+    padding: 24px 0;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .gallery {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .galleryImage {
+    width: 100%;
+    height: auto;
+  }
+
+  .propertyDetails {
+    width: 80%;
+    padding: 0 0 0 20px;
+  }
+
+  .hr {
+    width: 50%;
+    display: inline-block;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .paragraphPrice {
+    font-size: 15px;
+    margin-top: 10px;
+  }
+
+  .paragraph {
+    font-size: 14px;
+  }
+}
+
+/* Media Query for screens up to 768px */
+@media only screen and (max-width: 768px) {
+  .tabButton {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .headline {
+    font-size: 14px;
+  }
+
+  .property {
+    padding: 16px 0;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .gallery {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .galleryImage {
+    width: 50%;
+    height: auto;
+  }
+
+  .propertyDetails {
+    width: 100%;
+    padding: 0;
+    margin-top: 10px;
+  }
+
+  .hr {
+    width: 50%;
+    display: inline-block;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .paragraphPrice {
+    font-size: 14px;
+  }
+
+  .paragraph {
+    font-size: 10px;
+  }
 }
