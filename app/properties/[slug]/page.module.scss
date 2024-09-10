@@ -1,0 +1,181 @@
+.main {
+  margin: 90px 382px 0 382px;
+  padding: 32px 15px;
+}
+
+/* Breadcrumb */
+
+.breadcrumb {
+  font-size: 16px;
+}
+.separator {
+  margin: 0 5px;
+}
+
+.breadcrumb a {
+  text-decoration: none;
+}
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+/* Header Section */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 48px 0 16px 0;
+}
+.headerContent {
+  display: flex;
+  flex-direction: column;
+
+  flex: 1;
+}
+.headlineFirstLine {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.headline,
+.price {
+  font-size: 24px;
+  font-weight: 800;
+  padding-top: 15px;
+}
+
+.subHeadline {
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+  font-weight: none;
+  line-height: 1.2;
+}
+
+/* Media Section */
+.media {
+  display: flex;
+}
+
+.slider,
+.mapContainer {
+  flex: 1;
+  height: 370px;
+  width: 555px;
+  overflow: hidden;
+}
+
+.slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Map Styles */
+.mapContainer {
+  position: relative;
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+/* Key details stykles */
+.detailsGrid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+  text-align: left;
+}
+
+.detailItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.detailValue {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.detailLabel {
+  font-size: 16px;
+}
+
+/* Listings description styles */
+.description {
+  line-height: 28px;
+}
+
+/* Amenities styles */
+.detailsAmenities {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 16px;
+  padding: 16px 0;
+}
+
+.amenitiesItem {
+  display: flex;
+  align-items: left;
+  justify-content: left;
+}
+
+.amenitiesLabel {
+  font-size: 16px;
+  text-align: center;
+}
+
+/* Contact and Sign up form styles  */
+.contactInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.signUp {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .paragraph {
+    font-size: 16px;
+  }
+
+  .inputFields {
+    display: flex;
+    gap: 15px;
+    input[type="text"],
+    input[type="email"] {
+      flex: 1;
+      padding: 8px 16px;
+      display: flex;
+      flex-direction: row;
+      font-size: 16px;
+      width: 50%;
+      margin: 0 0 24px 0;
+
+      border: 1px solid #d8d8d8;
+    }
+  }
+
+  // Sign up button
+  button {
+    color: white;
+    background-color: #cfaf63;
+    padding: 8px 24px;
+    border: none;
+    width: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 800;
+  }
+}

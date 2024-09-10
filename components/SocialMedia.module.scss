@@ -7,6 +7,7 @@
   height: 100%;
   font-size: 20px;
   background-color: #f2f2f2;
+  margin: 0 auto;
 }
 
 .socialText {
@@ -15,7 +16,7 @@
   justify-self: center;
   padding: 15px 0;
   text-align: center;
-  width: 60%;
+  width: 100%;
 }
 
 .socialText h2 {
@@ -31,6 +32,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-self: center;
+
   gap: 7px;
 
   img {

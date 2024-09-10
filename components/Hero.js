@@ -1,7 +1,8 @@
 //styles
 
 import styles from "./Hero.module.scss";
-
+import { getEntries } from "@/lib/contentful";
+import Link from "next/link";
 //components
 
 import Button from "./Button";
@@ -14,7 +15,7 @@ const Hero = () => {
           Real Estate Agency
         </h1>
         <div className={styles.buttonContainer}>
-          <Button text="New York City" color="primary" />
+          <Button text="New York City" color="primary" />{" "}
           <Button text="Long Island" color="secondary" />
         </div>
       </div>
