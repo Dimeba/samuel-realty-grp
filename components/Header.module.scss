@@ -138,8 +138,10 @@
   }
 
   .nav {
+    left: 0;
+    right: 0;
     position: absolute;
-    top: 90px;
+    top: 5.6rem;
     flex-direction: column;
     width: 100%;
     background-color: base.$primary;
@@ -164,7 +166,7 @@
 
   @media (max-width: 480px) {
     .nav {
-      top: 80px;
+      top: 5rem;
 
       a {
         padding: 0.4rem 0.6rem;
@@ -177,7 +179,7 @@
     }
 
     .menuItem {
-      padding: 0 12px;
+      padding: 0 0.75rem;
 
       a {
         padding: 0.4rem 0.6rem;

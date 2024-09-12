@@ -101,7 +101,7 @@
   .footer {
     max-height: 40vh;
     flex-direction: column;
-    padding: 20px;
+    padding: 1.25rem;
   }
 
   .container {
@@ -144,10 +144,10 @@
 
   .introduction {
     font-size: 7px;
-    margin-bottom: 5px;
+    margin-bottom: 0.3rem;
   }
 
   .footerLogo {
-    display: none; //ne znam sto mi ga ne ukloni
+    display: none;
   }
 }

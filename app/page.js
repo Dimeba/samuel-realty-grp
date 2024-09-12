@@ -1,13 +1,15 @@
 //components
 import Hero from "@/components/Hero";
-import Header from "@/components/Header";
-import SocialMedia from "@/components/SocialMedia";
-import Button from "@/components/Button";
-import Footer from "@/components/Footer";
-import Properties from "@/components/Properties";
-import ImageSlider from "@/components/ImageSlider";
 
-export default async function Home() {
+import SocialMedia from "@/components/SocialMedia";
+
+import Properties from "@/components/Properties";
+
+export const metadata = {
+  title: "Samuel Realty Group",
+  description: "Real Estate Agency",
+};
+export default async function Home({ selectedLocation }) {
   return (
     <main>
       <Hero />
@@ -16,7 +18,7 @@ export default async function Home() {
         <SocialMedia />
       </div>
       <div>
-        <Properties />
+        <Properties selectedLocation={selectedLocation || "All"} />
       </div>
     </main>
   );

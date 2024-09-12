@@ -33,13 +33,18 @@
   grid-template-columns: repeat(3, 1fr);
   justify-self: center;
 
-  gap: 7px;
-
   img {
     display: block;
     object-fit: cover;
     transition: transform 0.3s ease, filter 0.3s ease;
     /*     border-radius: 2%; */
+  }
+  a {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
   }
 
   img:hover {
@@ -95,7 +100,7 @@
 
 @media screen and (max-width: 1024px) {
   .social {
-    padding: 5px;
+    padding: 0.3rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -109,7 +114,7 @@
   }
   .socialText h2 {
     font-size: 20px !important;
-    padding: 15px 0;
+    padding: 0.9rem 0;
     margin: 0;
   }
   .instaLinks {
@@ -132,14 +137,14 @@
   .buttonIg {
     width: 100%;
     max-width: 300px;
-    margin-top: 20px;
+    margin-top: 1.25rem;
     font-size: smaller;
   }
 }
 
 @media all and (min-width: 1024px) and (max-width: 1280px) {
   .social {
-    padding: 10px;
+    padding: 0.6rem;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -155,7 +160,7 @@
 
   .socialText h2 {
     font-size: 22px !important;
-    padding: 15px 0;
+    padding: 0.9rem 0;
     margin: 0;
   }
 
@@ -182,7 +187,7 @@
   .buttonIg {
     width: 100%;
     max-width: 350px;
-    margin-top: 20px;
+    margin-top: 1.25rem;
     font-size: 18px;
   }
 }

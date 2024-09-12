@@ -116,12 +116,12 @@
 
 @media (max-width: 728px) {
   .mainContainer {
-    padding: 20px 10px;
-    margin: 60px 0 0 0;
+    padding: 1.25rem 0.6rem;
+    margin: 3.75rem 0 0 0;
   }
   .breadcrumb {
-    padding: 0 10px;
-    margin-top: 20px;
+    padding: 0 0.6rem;
+    margin-top: 1.25rem;
   }
   .image {
     width: 100%;
@@ -130,13 +130,13 @@
 
   .blogPost {
     width: 90%;
-    padding-left: 10px;
+    padding-left: 0.6rem;
     transform: translateY(10px);
   }
 
   .headline {
     font-size: 18px;
-    line-height: 14px;
+    line-height: 1.6;
   }
 
   .moreAbout {
@@ -147,12 +147,12 @@
 
 @media (max-width: 420px) {
   .mainContainer {
-    padding: 15px;
-    margin: 40px 0 0 0;
+    padding: 0.9rem;
+    margin: 2.5rem 0 0 0;
   }
   .breadcrumb {
-    padding: 0 10px;
-    margin-top: 50px;
+    padding: 0 0.6rem;
+    margin-top: 3.1rem;
   }
   .image {
     width: 100%;
@@ -167,7 +167,7 @@
 
   .headline {
     font-size: 12px;
-    line-height: 14px;
+    line-height: 1.6;
   }
 
   .moreAbout {

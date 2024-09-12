@@ -2,8 +2,14 @@ import styles from "./Footer.module.scss";
 import { FaInstagram, FaFacebook } from "react-icons/fa";
 
 // Small reusable component for images
-const FooterImage = ({ src, width, height, alt }) => (
-  <img src={src} width={width} height={height} alt={alt} />
+const FooterImage = ({ src, width, height, alt, className }) => (
+  <img
+    className={className}
+    src={src}
+    width={width}
+    height={height}
+    alt={alt}
+  />
 );
 
 const Footer = () => {

@@ -81,40 +81,6 @@
   animation-delay: 0.5s;
 }
 
-.gallery {
-  width: 530px;
-  height: 330px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  overflow: hidden;
-  position: relative;
-  margin: 0 auto;
-}
-.galleryImage {
-  /*   width: 530px;
-  height: 330px; */
-  object-fit: cover;
-  position: absolute;
-  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-  transform: translateX(100%);
-  opacity: 0;
-
-  &.active {
-    transform: translateX(0);
-    opacity: 1;
-  }
-
-  &.prev {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-
-  &.next {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-}
 .propertyDetails {
   width: 60%;
   display: flex;
@@ -145,7 +111,7 @@
 @media only screen and (max-width: 1024px) {
   .tabButton {
     font-size: 16px;
-    padding: 15px;
+    padding: 0.9rem;
   }
 
   .headline {
@@ -153,24 +119,14 @@
   }
 
   .property {
-    padding: 24px 0;
+    padding: 1.5rem 0;
     flex-direction: column;
     text-align: center;
   }
 
-  .gallery {
-    max-width: 100%;
-    height: auto;
-  }
-
-  .galleryImage {
-    width: 100%;
-    height: auto;
-  }
-
   .propertyDetails {
     width: 80%;
-    padding: 0 0 0 20px;
+    padding: 0 0 0 1.25rem;
   }
 
   .hr {
@@ -182,7 +138,7 @@
 
   .paragraphPrice {
     font-size: 15px;
-    margin-top: 10px;
+    margin-top: 0.6rem;
   }
 
   .paragraph {
@@ -194,7 +150,7 @@
 @media only screen and (max-width: 768px) {
   .tabButton {
     font-size: 14px;
-    padding: 10px;
+    padding: 0.6rem;
   }
 
   .headline {
@@ -202,25 +158,15 @@
   }
 
   .property {
-    padding: 16px 0;
+    padding: 1rem 0;
     flex-direction: column;
     text-align: center;
-  }
-
-  .gallery {
-    max-width: 100%;
-    height: auto;
-  }
-
-  .galleryImage {
-    width: 50%;
-    height: auto;
   }
 
   .propertyDetails {
     width: 100%;
     padding: 0;
-    margin-top: 10px;
+    margin-top: 0.6rem;
   }
 
   .hr {

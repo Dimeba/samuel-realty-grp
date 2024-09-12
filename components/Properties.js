@@ -8,7 +8,7 @@ import { useState, useEffect } from "react";
 import { getEntries } from "@/lib/contentful";
 import ImageSlider from "@/components/ImageSlider";
 
-const Properties = () => {
+const Properties = ({ selectedLocation }) => {
   //pocetna stanja, prazan niz i prikaz sales kartice
   const [properties, setProperties] = useState([]);
   const [activeTab, setActiveTab] = useState("Sales");
@@ -32,8 +32,11 @@ const Properties = () => {
 
   //kreiram novu listu properties, prolazi kroz sve nekretnine i filtriram one koji odgovaraju aktivnoj kartici
   const showProperties = properties.filter(
-    (item) => item.fields.propertyCategory === activeTab
+    (item) =>
+      item.fields.propertyCategory === activeTab &&
+      (selectedLocation === "All" || item.fields.location === selectedLocation)
   );
+  console.log(showProperties);
 
   return (
     <div className={styles.mainContainer}>

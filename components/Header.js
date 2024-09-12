@@ -15,18 +15,18 @@ import { Spin as Hamburger } from "hamburger-react";
 const menuItems = [
   {
     title: "ACTIVE LISTINGS",
-    href: "/activelistings",
+    href: "/listings/new-york",
     submenu: [
-      { title: "New York", href: "/newyork" },
-      { title: "Long Island", href: "/longisland" },
+      { title: "New York", href: "/listings/new-york" },
+      { title: "Long Island", href: "/listings/long-island" },
     ],
   },
   {
     title: "PAST SALES",
-    href: "#",
+    href: "/listings/new-york",
     submenu: [
-      { title: "New York", href: "/newyork" },
-      { title: "Long Island", href: "/longisland" },
+      { title: "New York", href: "/listings/new-york" },
+      { title: "Long Island", href: "/listings/long-island" },
     ],
   },
   { title: "OUR AGENTS", href: "/agents" },
@@ -34,7 +34,7 @@ const menuItems = [
   { title: "CONTACT", href: "/contact" },
 ];
 
-const Header = () => {
+const Header = ({ onLocationChange }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
 
@@ -42,6 +42,9 @@ const Header = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const handleLocationClick = (location) => {
+    onLocationChange(location);
+  };
   const isNotHomePage = pathname !== "/"; //adding to recognize either is home page or not
 
   return (
@@ -65,7 +68,7 @@ const Header = () => {
               <Link
                 href={item.href}
                 aria-label={`Link to ${item.title} page`}
-                onClick={() => setIsMenuOpen(false)}
+                onClick={() => handleLocationClick(item.title)}
               >
                 {item.title}
               </Link>
@@ -77,6 +80,7 @@ const Header = () => {
                       key={subIndex}
                       href={subItem.href}
                       className={styles.dropdownLink}
+                      onClick={() => handleLocationClick(subItem.title)}
                     >
                       {subItem.title}
                     </Link>
