@@ -18,7 +18,7 @@ export default async function Home({ selectedLocation }) {
         <SocialMedia />
       </div>
       <div>
-        <Properties selectedLocation={selectedLocation || "All"} />
+        <Properties selectedLocation={selectedLocation || "New York"} />
       </div>
     </main>
   );

@@ -81,15 +81,24 @@
   height: 100%;
   font-size: 18px;
   display: flex;
+  flex: 1;
   flex-direction: row;
   width: 60%;
   margin: 20px auto 0 auto;
   align-items: center;
   justify-content: center;
   animation: slideInFromBottom 1s ease-out;
+  text-decoration: none;
+
+  button {
+    padding: 12px 24px;
+    font-size: 18px;
+    height: auto;
+    width: 250px;
+  }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 768px) {
   .hero {
     display: flex;
     flex-direction: column;
@@ -114,22 +123,25 @@
     padding: 3.1rem 0 0 0;
     line-height: 1.2;
   }
-
   .buttonContainer {
     display: flex;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
     justify-content: center;
-    text-align: center;
-    width: 70%;
-    margin: 0 auto;
+    margin: -20px auto 0 auto;
+    min-width: 100%;
   }
 
   .buttonContainer button {
-    padding: 0;
-    font-size: 10px;
-    height: 30%;
+    margin-bottom: 1rem; /* Add space between buttons */
+    width: 100%; /* Make buttons responsive */
+    max-width: 250px;
+    max-height: 100%;
+    font-size: 9px;
+    padding: 9px 24px;
   }
 }
+
 @media screen and (min-width: 1920px) {
   .hero {
     background-size: cover;

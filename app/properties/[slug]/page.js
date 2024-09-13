@@ -20,11 +20,15 @@ export async function generateStaticParams() {
 export default async function Property({ params }) {
   const { slug } = params;
   const property = await getEntry(slug);
+
+  const activeTab = "Sales";
+  const tabLink =
+    activeTab === "Rentals" ? "/listings/rentals" : "/listings/sales";
   return (
     <main className={styles.main}>
       {/* Breadcrumb navigation */}
       <nav className={styles.breadcrumb}>
-        <Link href="/">Sales & In Contract</Link>
+        <Link href={tabLink}>{activeTab}</Link>
         <span className={styles.separator}>&gt;</span>
         <strong>{property.fields.neighbourhood}</strong>
       </nav>
@@ -99,7 +103,7 @@ export default async function Property({ params }) {
           )}
           {property.fields.baths && (
             <div className={styles.detailItem}>
-              <span className={styles.detailValue}>Bath</span>
+              <span className={styles.detailValue}>Baths</span>
               <span className={styles.detailLabel}>
                 {property.fields.baths}
               </span>
@@ -130,18 +134,18 @@ export default async function Property({ params }) {
         {documentToReactComponents(property.fields.description)}
       </div>
       {/*  Amenities Section  */}
-      <h2 className={styles.headline}>Amenities</h2>
-      <div className={styles.detailsAmenities}>
-        {property.fields.amenities && property.fields.amenities.length > 0 ? (
-          property.fields.amenities.map((amenity, index) => (
-            <div key={index} className={styles.amenitiesItem}>
-              <span className={styles.amenitiesLabel}>{amenity}</span>
-            </div>
-          ))
-        ) : (
-          <p>No amenities available</p>
-        )}
-      </div>
+      {property.fields.amenities && property.fields.amenities.length > 0 && (
+        <>
+          <h2 className={styles.headline}>Amenities</h2>
+          <div className={styles.detailsAmenities}>
+            {property.fields.amenities.map((amenity, index) => (
+              <div key={index} className={styles.amenitiesItem}>
+                <span className={styles.amenitiesLabel}>{amenity}</span>
+              </div>
+            ))}
+          </div>
+        </>
+      )}
       {/* Contact Section */}
       <h2 className={styles.headline}>Contact</h2>
       <div className={styles.contactInfo}>

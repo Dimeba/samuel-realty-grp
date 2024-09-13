@@ -42,9 +42,10 @@
   margin: 0;
   padding: 0;
   font-size: 20px;
-  a {
-    text-decoration: none;
-  } //ne znam zasto mi ne ukloni underline ispod naslova
+
+  &:hover {
+    color: #3e5a6b;
+  }
 }
 
 .properties {
@@ -98,9 +99,14 @@
 
 .paragraphPrice {
   font-size: 20px;
-
+  font-weight: 600;
   margin: 0;
+  cursor: pointer;
+  &:hover {
+    color: #3e5a6b;
+  }
 }
+
 .paragraph {
   font-size: 16px;
   margin: 0;

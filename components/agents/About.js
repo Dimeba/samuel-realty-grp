@@ -19,7 +19,13 @@ const ourAgents = () => {
 
     let agentDetail = (
       <div className={styles.agent} key={i}>
-        <h3 className={styles.namesHeadline}>{`${agent.fields.name}`}</h3>
+        <Link
+          style={{ textDecoration: "none" }}
+          href={`/agents/${agent.sys.id}`}
+          passHref
+        >
+          <h3 className={styles.namesHeadline}>{`${agent.fields.name}`}</h3>
+        </Link>
         <p className={styles.paragraphPosition}>{`${agent.fields.position}`}</p>
         <div className={styles.paragraph}>
           {" "}
