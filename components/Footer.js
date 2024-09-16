@@ -91,7 +91,7 @@ const Footer = () => {
             New York, NY 10022
           </div>
           <FooterImage
-            src="/images/logo_white_transparent_background.png"
+            src="/images/logo-white (4).svg"
             width={100}
             height={80}
             alt="Company Logo"
