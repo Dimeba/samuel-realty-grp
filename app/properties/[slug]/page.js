@@ -1,3 +1,5 @@
+import Head from "next/head";
+
 //styles
 import styles from "./page.module.scss";
 import Link from "next/link";
@@ -24,8 +26,19 @@ export default async function Property({ params }) {
   const activeTab = "Sales";
   const tabLink =
     activeTab === "Rentals" ? "/listings/rentals" : "/listings/sales";
+  const pageTitle = `${property.fields.neighbourhood}`;
+  const pageDescription = `Take a look at the property located at ${property.fields.address}. ${property.fields.description}`;
   return (
     <main className={styles.main}>
+      {/* Meta and SEO */}
+      <Head>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <meta
+          name="keywords"
+          content="real estate, new york, long island,property"
+        />
+      </Head>
       {/* Breadcrumb navigation */}
       <nav className={styles.breadcrumb}>
         <Link href={tabLink}>{activeTab}</Link>

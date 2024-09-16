@@ -1,3 +1,5 @@
+import Head from "next/head";
+
 import { getEntry, getEntries } from "@/lib/contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import Link from "next/link";
@@ -26,8 +28,19 @@ export default async function AgentPage({ params }) {
   });
   const properties = await Promise.all(propertyPromise);
 
+  const pageTitle = `${agent.fields.name}`;
+  const pageDescription = `Learn more about ${agent.fields.name}, real estate agent at Samuel Realty Group. ${agent.fields.biographyExtended}`;
+
   return (
     <div className={styles.container}>
+      <Head>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <meta
+          name="keywords"
+          content="real estate, agent, new york, long island, Samuel Realty Group"
+        />
+      </Head>
       {
         <div className={styles.breadcrump}>
           <Link href="/agents">Our Agents</Link> &gt;{" "}
@@ -55,11 +68,15 @@ export default async function AgentPage({ params }) {
           <div className={styles.property} key={property.sys.id}>
             <div className={styles.image}>
               {" "}
-              <Image
-                src={`https:${property.fields.image.fields.file.url}`}
-                width={275}
-                height={183}
-              ></Image>
+              {property?.fields?.image?.fields?.file?.url ? (
+                <Image
+                  src={`https:${property.fields.image.fields.file.url}`}
+                  width={275}
+                  height={183}
+                />
+              ) : (
+                <p>Image not available</p>
+              )}
             </div>
             <div className={styles.propertyDetails}>
               <Link

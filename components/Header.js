@@ -1,15 +1,15 @@
-"use client";
+"use client"; //izvrsavanje koda na pretrazivacu a ne na serveru
 
 //hooks
 import { useState } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname } from "next/navigation"; //omogucavanje pristupa putanjama (url)
 
 //styles
 import styles from "./Header.module.scss";
 
 //components
 import Link from "next/link";
-import { Spin as Hamburger } from "hamburger-react";
+import { Spin as Hamburger } from "hamburger-react"; //ubacivanje spin komponente i preimenovanje u Hamburger iz biblioteke
 
 //menu items
 const menuItems = [
@@ -35,15 +35,18 @@ const menuItems = [
 ];
 
 const Header = ({ onLocationChange }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const pathname = usePathname();
+  //pozivam funkciju kada se klikne na dugme
+  const [isMenuOpen, setIsMenuOpen] = useState(false); //pocetno stanje menija, koje je zatvoreno
+  const pathname = usePathname(); //dobijam trenutnu putanju stranice
 
   const toggleMenu = () => {
+    //mijenja stanje setIsMenuOpen za hamburger
     setIsMenuOpen(!isMenuOpen);
   };
 
   const handleLocationClick = (location) => {
-    onLocationChange(location);
+    //uzimam parametar iz page.js locationa, da li je ny ili LI
+    onLocationChange(location); //prosledjujem location argument onLocationChange funkciji
   };
   const isNotHomePage = pathname !== "/"; //adding to recognize either is home page or not
 
@@ -51,7 +54,7 @@ const Header = ({ onLocationChange }) => {
     <header
       className={`${styles.container} ${
         isNotHomePage ? styles.withBottomLine : ""
-      }`}
+      }`} //template literal, da li je pocetna stranica ili nije
     >
       <div className={styles.headerContent}>
         {/* Logo */}
@@ -63,6 +66,8 @@ const Header = ({ onLocationChange }) => {
 
         {/* Desktop Navigation */}
         <nav className={`${styles.nav} ${!isMenuOpen && styles.hidden}`}>
+          {" "}
+          {/* dodavanje klasa u odnosu na uslov je li otvoren meni ili nije za hamburger meni */}
           {menuItems.map((item, index) => (
             <div key={index} className={styles.menuItem}>
               <Link
@@ -72,6 +77,7 @@ const Header = ({ onLocationChange }) => {
               >
                 {item.title}
               </Link>
+
               {/* Submenu */}
               {item.submenu && (
                 <div className={styles.dropdown}>
