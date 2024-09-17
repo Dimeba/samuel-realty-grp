@@ -11,7 +11,7 @@ import { getEntries } from "@/lib/contentful";
 import ImageSlider from "@/components/ImageSlider";
 
 //start condition, empty array and showing Sales properties
-const Properties = ({ selectedLocation }) => {
+const Properties = ({ selectedLocation, isPastSales }) => {
   const [properties, setProperties] = useState([]);
   const [activeTab, setActiveTab] = useState("Sales");
 
@@ -32,39 +32,45 @@ const Properties = ({ selectedLocation }) => {
     setActiveTab(tab);
   };
 
-  //kreiram novu listu properties, prolazi kroz sve nekretnine i filtriram one koji odgovaraju aktivnoj kartici
-  const showProperties = properties.filter(
-    (item) =>
-      item.fields.propertyCategory === activeTab &&
-      (selectedLocation === "All" || item.fields.location === selectedLocation)
-  );
-  console.log("Selected Location:", selectedLocation);
-  console.log(
-    "Property Location:",
-    properties.map((item) => item.fields.location)
-  );
+  const showProperties = properties.filter((item) => {
+    // Filtriranje prema statusu: true  false
+    const statusMatch = isPastSales
+      ? item.fields.status === true // Ako je "Past Sales", prikazuj zatvorene (status je true)
+      : item.fields.status === false; // Ako je "Active Listings", prikazuj aktivne (status je false)
+
+    // Filtriranje prema lokaciji (New York ili Long Island)
+    const locationMatch =
+      selectedLocation === "All" || item.fields.location === selectedLocation;
+
+    // Vraćamo rezultat kombinovanih filtera: lokacija + status + aktivna kartica (Sales ili Rentals)
+    return (
+      statusMatch && locationMatch && item.fields.propertyCategory === activeTab
+    );
+  });
 
   return (
     <div className={styles.mainContainer}>
       {/* Tab Navigation */}
-      <div className={styles.tabNavigation}>
-        <button
-          className={`${styles.tabButton} ${
-            activeTab === "Sales" ? styles.active : ""
-          }`}
-          onClick={() => tabClick("Sales")}
-        >
-          Sales
-        </button>
-        <button
-          className={`${styles.tabButton} ${
-            activeTab === "Rentals" ? styles.active : ""
-          }`}
-          onClick={() => tabClick("Rentals")}
-        >
-          Rentals
-        </button>
-      </div>
+      {!isPastSales && (
+        <div className={styles.tabNavigation}>
+          <button
+            className={`${styles.tabButton} ${
+              activeTab === "Sales" ? styles.active : ""
+            }`}
+            onClick={() => tabClick("Sales")}
+          >
+            Sales
+          </button>
+          <button
+            className={`${styles.tabButton} ${
+              activeTab === "Rentals" ? styles.active : ""
+            }`}
+            onClick={() => tabClick("Rentals")}
+          >
+            Rentals
+          </button>
+        </div>
+      )}
 
       {/* Properties */}
       <div className={styles.properties}>

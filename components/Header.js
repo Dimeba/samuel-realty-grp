@@ -23,10 +23,10 @@ const menuItems = [
   },
   {
     title: "PAST SALES",
-    href: "/listings/new-york",
+    href: "/listings/new-york/past-sales",
     submenu: [
-      { title: "New York", href: "/listings/new-york" },
-      { title: "Long Island", href: "/listings/long-island" },
+      { title: "New York", href: "/listings/new-york/past-sales" },
+      { title: "Long Island", href: "/listings/long-island/past-sales" },
     ],
   },
   { title: "OUR AGENTS", href: "/agents" },
@@ -73,7 +73,12 @@ const Header = ({ onLocationChange }) => {
               <Link
                 href={item.href}
                 aria-label={`Link to ${item.title} page`}
-                onClick={() => handleLocationClick(item.title)}
+                onClick={() =>
+                  handleLocationClick(
+                    item.title,
+                    item.title === "PAST SALES" ? "closed" : "active"
+                  )
+                }
               >
                 {item.title}
               </Link>
@@ -86,7 +91,12 @@ const Header = ({ onLocationChange }) => {
                       key={subIndex}
                       href={subItem.href}
                       className={styles.dropdownLink}
-                      onClick={() => handleLocationClick(subItem.title)}
+                      onClick={() =>
+                        handleLocationClick(
+                          subItem.title,
+                          item.title === "PAST SALES" ? "closed" : "active"
+                        )
+                      }
                     >
                       {subItem.title}
                     </Link>
