@@ -58,10 +58,11 @@
 
 .middleFooter {
   display: flex;
-  flex: 1;
+  flex: 2;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 .firstFooterRow {
@@ -76,16 +77,19 @@
   font-size: 9px;
   color: white;
 }
-
+.thirdFooterRow {
+  white-space: nowrap;
+}
 .rightFooter {
   display: flex;
-  align-items: right;
+  align-items: flex-end;
   justify-content: end;
   flex-direction: row;
 }
 .introduction {
   display: flex;
-  margin-right: 10px;
+  height: auto;
+  margin: 0 10px 10px 0;
   text-align: center;
   align-items: center;
   justify-content: center;
@@ -97,6 +101,12 @@
   display: block;
 }
 
+@media only screen and (max-width: 1024px) {
+  .thirdFooterRow {
+    white-space: normal;
+    word-wrap: break-word;
+  }
+}
 @media only screen and (max-width: 768px) {
   .footer {
     max-height: 40vh;
@@ -137,7 +147,10 @@
     width: 20px;
     height: 20px;
   }
-
+  .thirdFooterRow {
+    white-space: normal;
+    word-wrap: break-word;
+  }
   .zillowLogo {
     max-width: 50px;
   }

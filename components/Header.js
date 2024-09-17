@@ -60,7 +60,7 @@ const Header = ({ onLocationChange }) => {
         {/* Logo */}
         <Link
           className={styles.logo}
-          href="/listings/new-york"
+          href="/"
           aria-label="Link to Homepage"
         ></Link>
 

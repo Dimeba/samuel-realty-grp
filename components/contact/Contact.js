@@ -6,16 +6,9 @@ import styles from "./Contact.module.scss";
 
 //components
 
-const ContactPage = ({
-  pageTitle = "Contact Us",
-  pageDescription = "Reach out to us for any questions, comments, or concerns.",
-}) => {
+const ContactPage = () => {
   return (
     <div className={styles.mainContainer}>
-      <Head>
-        <title>{pageTitle}</title>
-        <meta name="description" content={pageDescription} />
-      </Head>
       <div className={styles.container}>
         <div className={styles.map}>
           <iframe

@@ -1,6 +1,7 @@
 import styles from "./Blog.module.scss";
 import Link from "next/link";
 import Image from "next/image";
+import Head from "next/head";
 
 //contentful
 import { getEntries } from "@/lib/contentful";
@@ -14,6 +15,7 @@ function formatDate(dateString) {
   const formattedDate = date.toLocaleDateString("en-US", options);
   return formattedDate;
 }
+
 const BlogPage = () => {
   const blogEntries = [];
 
@@ -32,13 +34,10 @@ const BlogPage = () => {
             />
           </div>
           <div className={styles.blogPost}>
-            {/* <p className={styles.name}>{`${blog.fields.name}`}</p> */}{" "}
-            {/* nisam znala kako da nazovem ovo i cemu sluzi uopste na sajtu @imefirme */}
             <p className={styles.blogPostDate}>
               {" "}
-              | {formatDate(`${blog.fields.date}`)}
+              @samuelrealtygroup | {formatDate(`${blog.fields.date}`)}
             </p>{" "}
-            {/* stavila sam u contentfilu date i izabrala samo date only, ali mi ne izbacuje kako treba */}
             <h2 className={styles.blogPostHeadline}>
               {" "}
               <Link href={`/blog/${blog.sys.id}`} passHref>

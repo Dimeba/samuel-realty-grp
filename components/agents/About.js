@@ -8,8 +8,6 @@ import { getEntries } from "@/lib/contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"; //added in contenful Rich text field, got an error in the meantime
 
 const Agents = await getEntries("agents");
-console.log(Agents);
-console.log(Agents.items[0].fields.moreInfo);
 
 const ourAgents = () => {
   const agentDetails = [];

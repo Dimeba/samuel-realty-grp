@@ -14,6 +14,20 @@ export async function generateStaticParams() {
   }));
 }
 
+export async function generateMetadata({ params }) {
+  const { slug } = params;
+  const agent = await getEntry(slug);
+
+  const pageTitle = `${agent.fields.name}`;
+  const pageDescription = `Learn more about ${agent.fields.name}, real estate agent at Samuel Realty Group. ${agent.fields.biographyExtended}`;
+
+  return {
+    title: pageTitle,
+    description: pageDescription,
+    keywords: "real estate, agent, new york, long island, Samuel Realty Group",
+  };
+}
+
 //renderovanje pojedinacne stranice za svakog agenta
 export default async function AgentPage({ params }) {
   const { slug } = params;

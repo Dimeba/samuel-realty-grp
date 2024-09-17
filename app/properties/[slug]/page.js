@@ -18,6 +18,19 @@ export async function generateStaticParams() {
     slug: item.sys.id,
   }));
 }
+export async function generateMetadata({ params }) {
+  const { slug } = params;
+  const property = await getEntry(slug);
+
+  const pageTitle = `${property.fields.neighbourhood}`;
+  const pageDescription = `Explore the property at ${property.fields.address}. ${property.fields.description}`;
+
+  return {
+    title: pageTitle,
+    description: pageDescription,
+    keywords: "real estate, agent, new york, long island, Samuel Realty Group",
+  };
+}
 
 export default async function Property({ params }) {
   const { slug } = params;
@@ -28,6 +41,7 @@ export default async function Property({ params }) {
     activeTab === "Rentals" ? "/listings/rentals" : "/listings/sales";
   const pageTitle = `${property.fields.neighbourhood}`;
   const pageDescription = `Take a look at the property located at ${property.fields.address}. ${property.fields.description}`;
+
   return (
     <main className={styles.main}>
       {/* Meta and SEO */}
@@ -36,7 +50,7 @@ export default async function Property({ params }) {
         <meta name="description" content={pageDescription} />
         <meta
           name="keywords"
-          content="real estate, new york, long island,property"
+          content="real estate, new york, long island, property"
         />
       </Head>
       {/* Breadcrumb navigation */}

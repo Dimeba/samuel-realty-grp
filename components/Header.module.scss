@@ -21,7 +21,7 @@
   width: 100%;
   height: 100%;
 }
-.nav {
+.hidden {
   flex: 1;
   position: relative;
   justify-self: center;
@@ -85,6 +85,10 @@
     &:hover::after {
       width: 100%;
     }
+    &.active {
+      font-weight: bold;
+      color: base.$primary;
+    }
   }
 
   &:hover a::after {
@@ -144,6 +148,14 @@
     color: base.$primary;
   }
 
+  .menuItem {
+    height: 25px;
+    padding: 0;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+
   .contact {
     display: flex;
     flex-direction: column;
@@ -163,12 +175,14 @@
     top: 5.6rem;
     flex-direction: column;
     width: 100%;
+    height: 40%;
     background-color: base.$primary;
 
     a {
       width: 100%;
       color: white;
       font-size: base.$fontSizeBase;
+      margin: 0;
     }
   }
 
@@ -197,12 +211,11 @@
       width: 70px;
     }
 
-    .menuItem {
+    /* .menuItem {
       padding: 0 0.75rem;
 
       a {
         padding: 0.4rem 0.6rem;
-      }
-    }
+      } */
   }
 }
