@@ -9,7 +9,7 @@
   line-height: 28px;
   color: base.$primary;
   justify-content: space-between;
-  /*   min-height: 100vh; */
+  min-height: 100vh;
 }
 
 .agentDetails {
@@ -125,6 +125,17 @@
     }
   }
 }
+.availability {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1.2rem;
+  color: base.$primary;
+  min-height: 150px;
+}
+
 @media (max-width: 1280px) {
   .container {
     margin: 60px 20px;

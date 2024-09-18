@@ -180,9 +180,11 @@ export default async function Property({ params }) {
           <p className={styles.paragraph}>
             Contact our exclusive agents for more info:
           </p>
-          <span>Sam Horowitz</span>
-          <p>P:516.314.7788</p>
-          <p>shorowitz@samuelrealtygrp.com</p>
+          <Link style={{ textDecoration: "none", fontWeigth: "bold  " }}>
+            {property.fields.agentName}
+          </Link>
+          <p>P: {property.fields.agentPhoneNumber}</p>
+          <p>s{property.fields.agentEmail}</p>
         </div>
         {/* Signup form for updates */}
         <div className={styles.signUp}>

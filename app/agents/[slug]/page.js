@@ -7,6 +7,7 @@ import styles from "./page.module.scss";
 import Image from "next/image";
 
 const agents = await getEntries("agents");
+const listings = await getEntries("listings");
 
 export async function generateStaticParams() {
   return agents.items.map((item) => ({
@@ -42,6 +43,10 @@ export default async function AgentPage({ params }) {
   });
   const properties = await Promise.all(propertyPromise);
 
+  const closedProperties = properties.filter(
+    (property) => property.fields.status === true
+  );
+
   const pageTitle = `${agent.fields.name}`;
   const pageDescription = `Learn more about ${agent.fields.name}, real estate agent at Samuel Realty Group. ${agent.fields.biographyExtended}`;
 
@@ -55,12 +60,12 @@ export default async function AgentPage({ params }) {
           content="real estate, agent, new york, long island, Samuel Realty Group"
         />
       </Head>
-      {
-        <div className={styles.breadcrump}>
-          <Link href="/agents">Our Agents</Link> &gt;{" "}
-          <strong>{agent.fields.name}</strong>
-        </div>
-      }
+
+      <div className={styles.breadcrump}>
+        <Link href="/agents">Our Agents</Link> &gt;{" "}
+        <strong>{agent.fields.name}</strong>
+      </div>
+
       <div className={styles.agentDetails}>
         <h1 className={styles.heading}>About {agent.fields.name}</h1>
         <h2 className={styles.headingTwo}>{agent.fields.position}</h2>
@@ -78,50 +83,55 @@ export default async function AgentPage({ params }) {
         <h2 className={styles.closings}>Closings</h2>
       </div>
       <div className={styles.properties}>
-        {properties.map((property) => (
-          <div className={styles.property} key={property.sys.id}>
-            <div className={styles.image}>
-              {" "}
-              {property?.fields?.image?.fields?.file?.url ? (
-                <Image
-                  src={`https:${property.fields.image.fields.file.url}`}
-                  width={275}
-                  height={183}
-                />
-              ) : (
-                <p>Image not available</p>
-              )}
-            </div>
-            <div className={styles.propertyDetails}>
-              <Link
-                style={{ textDecoration: "none" }}
-                href={`/properties/${property.sys.id}`}
-              >
-                <h3 className={styles.headline}>{property.fields.address}</h3>
-              </Link>
-              <p className={styles.paragraph}>
-                {property.fields.neighbourhood}
-              </p>
+        {closedProperties.length > 0 ? (
+          closedProperties.map((property) => (
+            <div className={styles.property} key={property.sys.id}>
+              <div className={styles.image}>
+                {property?.fields?.image?.fields?.file?.url ? (
+                  <Image
+                    src={`https:${property.fields.image.fields.file.url}`}
+                    width={275}
+                    height={183}
+                  />
+                ) : (
+                  <p>Image not available</p>
+                )}
+              </div>
+              <div className={styles.propertyDetails}>
+                <Link
+                  style={{ textDecoration: "none" }}
+                  href={`/properties/${property.sys.id}`}
+                >
+                  <h3 className={styles.headline}>{property.fields.address}</h3>
+                </Link>
+                <p className={styles.paragraph}>
+                  {property.fields.neighbourhood}
+                </p>
 
-              <p className={styles.paragraph}>
-                {property.fields.propertyCategoryy}
-              </p>
-              <hr className={styles.hr}></hr>
-              <p className={styles.paragraphPrice}>
-                <strong>
-                  {/*   {property.fields.propertyCategory === "Rentals"
+                <p className={styles.paragraph}>
+                  {property.fields.propertyCategoryy}
+                </p>
+                <hr className={styles.hr}></hr>
+                <p className={styles.paragraphPrice}>
+                  <strong>
+                    {/*   {property.fields.propertyCategory === "Rentals"
                     ? "Monthly Rent:"
                     : "Asking Price:"}{" "} */}
-                  {property.fields.price}
-                </strong>
-              </p>
-              <p className={styles.paragraph}>
-                {property.fields.squareFeet} | Beds: {property.fields.beds} |
-                Baths: {property.fields.baths}
-              </p>
+                    {property.fields.price}
+                  </strong>
+                </p>
+                <p className={styles.paragraph}>
+                  {property.fields.squareFeet} | Beds: {property.fields.beds} |
+                  Baths: {property.fields.baths}
+                </p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))
+        ) : (
+          <p className={styles.availability}>
+            No closed properties available for this agent
+          </p>
+        )}
       </div>
     </div>
   );
