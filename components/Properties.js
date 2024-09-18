@@ -33,6 +33,7 @@ const Properties = ({ selectedLocation, isPastSales }) => {
   };
 
   const showProperties = properties.filter((item) => {
+    console.log(item);
     // Filtriranje prema statusu: true  false
     const statusMatch = isPastSales
       ? item.fields.status === true // Ako je "Past Sales", prikazuj zatvorene (status je true)

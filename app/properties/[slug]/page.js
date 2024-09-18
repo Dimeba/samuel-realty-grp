@@ -180,11 +180,13 @@ export default async function Property({ params }) {
           <p className={styles.paragraph}>
             Contact our exclusive agents for more info:
           </p>
-          <Link style={{ textDecoration: "none", fontWeigth: "bold  " }}>
+
+          <span style={{ fontWeight: "bold" }}>
             {property.fields.agentName}
-          </Link>
+          </span>
+
           <p>P: {property.fields.agentPhoneNumber}</p>
-          <p>s{property.fields.agentEmail}</p>
+          <p>{property.fields.agentEmail}</p>
         </div>
         {/* Signup form for updates */}
         <div className={styles.signUp}>
